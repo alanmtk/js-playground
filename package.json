@@ -1,0 +1,25 @@
+{
+  "name": "js-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binarySearch-boolean.js",
+  "scripts": {
+    "lint": "eslint ./ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanmtk/js-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanmtk/js-playground/issues"
+  },
+  "homepage": "https://github.com/alanmtk/js-playground#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
