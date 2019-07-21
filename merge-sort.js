@@ -3,7 +3,7 @@
 // Ordenar cada sublista recursivamente aplicando el ordenamiento por mezcla.
 // Mezclar las dos sublistas en una sola lista ordenada.
 const mergeSort = (xs) => {
-  if (xs.length === 0 || xs.length === 1) return xs;
+  if (!xs.length || xs.length === 1) return xs;
 
   const half = Math.floor(xs.length / 2);
 
@@ -12,15 +12,19 @@ const mergeSort = (xs) => {
   leftHalf = mergeSort(leftHalf);
   rightHalf = mergeSort(rightHalf);
 
-  const res = [];
+  return merge(leftHalf, rightHalf);
+};
 
-  while (leftHalf.length > 0 && rightHalf.length > 0) {
-    leftHalf[0] < rightHalf[0] ? res.push(leftHalf.shift()) : res.push(rightHalf.shift());
+const merge = (xs, ys) => {
+  const merged = [];
+
+  while (xs.length && ys.length) {
+    xs[0] < ys[0] ? merged.push(xs.shift()) : merged.push(ys.shift());
   }
 
   // Al salir del while alguna de las dos listas va a quedarse sin elementos, en base a esto
   // puedo juntar los elementos de las tres listas y me queda la original ordenada
-  return [...res, ...leftHalf, ...rightHalf];
+  return [...merged, ...xs, ...ys];
 };
 
 // Para testear la igualdad de las listas en base a los elementos
