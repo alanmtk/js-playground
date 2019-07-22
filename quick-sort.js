@@ -6,25 +6,25 @@ const quickSort = (xs) => {
   if (xs.length < 2) return xs;
 
   const pivot = xs[0];
-  
+
   let lower = [];
   let higher = [];
-  
+
   for (let i = 1; i < xs.length; i++) {
     xs[i] < pivot ? lower.push(xs[i]) : higher.push(xs[i]);
   }
-  
+
   lower = quickSort(lower);
   higher = quickSort(higher);
-  
+
   return [...lower, pivot, ...higher];
 };
 
 // Para testear la igualdad de las listas en base a los elementos
 const arraysEqual = (xs, ys) => JSON.stringify(xs) === JSON.stringify(ys);
 
-console.log(arraysEqual(quickSort([2,3,1]), [1,2,3]));
+console.log(arraysEqual(quickSort([2, 3, 1]), [1, 2, 3]));
 console.log(arraysEqual(quickSort([1]), [1]));
-console.log(arraysEqual(quickSort([22,1,3,1]), [1,1,3,22]));
-console.log(arraysEqual(quickSort([251,10,1,1]), [1,1,10,251]));
+console.log(arraysEqual(quickSort([22, 1, 3, 1]), [1, 1, 3, 22]));
+console.log(arraysEqual(quickSort([251, 10, 1, 1]), [1, 1, 10, 251]));
 console.log(arraysEqual(quickSort([]), []));
